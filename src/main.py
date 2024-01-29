@@ -1,5 +1,6 @@
 import pyodbc
 from config_reader import ConfigReader
+import time
 
 def main():
 
