@@ -29,3 +29,9 @@ class Application:
 
     def import_scv_json(self):
         pass
+
+    def delete__prescription(self):
+        pass
+
+    def update_prescription(self):
+        pass

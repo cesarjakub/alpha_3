@@ -5,7 +5,7 @@ from three_tier import Application
 from three_tier import Presentation
 
 def main():
-    """
+
     app = Application()
 
     presentation = Presentation()
@@ -25,7 +25,7 @@ def main():
     print("Připojeno.")
 
     connection.close()
-
+    """
 
 if __name__ == '__main__':
     main()
