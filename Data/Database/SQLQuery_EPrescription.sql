@@ -75,20 +75,3 @@ SELECT * FROM medicine;
 SELECT * FROM specialization;
 SELECT * FROM doctor;
 SELECT * FROM eprescription;
-
-USE master;
-
-IF NOT EXISTS 
-    (SELECT name
-     FROM master.sys.server_principals
-     WHERE name = 'test')
-BEGIN
-    CREATE LOGIN test WITH PASSWORD = '1234';
-END
-
-begin transaction;
-go
-CREATE USER [test] FOR LOGIN [test] WITH DEFAULT_SCHEMA=[dbo];
-GO
-ALTER ROLE [db_owner] ADD MEMBER [test];
-commit;
