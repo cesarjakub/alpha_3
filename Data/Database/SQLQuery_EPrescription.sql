@@ -56,7 +56,7 @@ Validity DATE NOT NULL
 GO
 CREATE VIEW EPrescriptionView AS
 SELECT 
-eprescription.ID,
+eprescription.ID as e_ID,
 patient.First_name AS Patient_FirstName, patient.Last_name AS Patient_LastName, patient.Date_of_birth, patient.Health_insurance_number, 
 eprescription.Issued, eprescription.Validity, 
 doctor.Title, doctor.First_name AS Doctor_FirstName, doctor.Last_name AS Doctor_LastName, doctor.Telephone,
@@ -64,13 +64,12 @@ medicine.Name, medicine.Amount, medicine.Dosage, medicine.Payment
 FROM eprescription INNER JOIN patient ON eprescription.patient_ID = patient.ID INNER JOIN doctor ON eprescription.doctor_ID = doctor.ID INNER JOIN medicine ON eprescription.medicine_ID = medicine.ID;
 GO
 
-
 SELECT * FROM EPrescriptionView;
 
 
 GO
-CREATE VIEW  AS
-SELECT 
+CREATE VIEW Get_Specialization_name AS
+SELECT specialization.Name From specialization;
 GO
 
 
@@ -131,8 +130,39 @@ BEGIN
 END;
 GO
 
-EXEC Create_medicine 'ABC Pharmaceuticals', 'PainRelief', 30, 3, 'Insurance';
+EXEC Create_medicine 'ABC Pharmaceuticals', 'Painkillers', 30, 3, 'Insurance';
 
+
+GO
+CREATE PROCEDURE AddEReceiptByNameAndDOB @PatientFirstName VARCHAR(20), @PatientLastName VARCHAR(20), @PatientDOB DATE, @MedicineName VARCHAR(50), @DoctorFirstName VARCHAR(20), @DoctorLastName VARCHAR(20), @Issued DATE, @Validity DATE
+AS
+BEGIN
+    BEGIN TRANSACTION;
+
+    DECLARE @PatientID INT;
+    DECLARE @MedicineID INT;
+    DECLARE @DoctorID INT;
+
+    SELECT @PatientID = ID
+    FROM patient
+    WHERE First_name = @PatientFirstName AND Last_name = @PatientLastName AND Date_of_birth = @PatientDOB;
+
+    SELECT @MedicineID = ID
+    FROM medicine
+    WHERE Name = @MedicineName;
+
+    SELECT @DoctorID = ID
+    FROM doctor
+    WHERE First_name = @DoctorFirstName AND Last_name = @DoctorLastName;
+
+    INSERT INTO eprescription (patient_ID, medicine_ID, doctor_ID, Issued, Validity)
+    VALUES (@PatientID, @MedicineID, @DoctorID, @Issued, @Validity);
+
+    COMMIT;
+END;
+GO
+
+EXEC AddEReceiptByNameAndDOB 'Jack', 'White', '1980-10-08', 'Painkillers', 'Sarah', 'Jones', '2024-01-30', '2024-02-02';
 
 SELECT * FROM patient;
 SELECT * FROM manufacturer;
