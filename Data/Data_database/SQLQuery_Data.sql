@@ -11,7 +11,14 @@ INSERT INTO manufacturer (Name, Address, Email)
 VALUES
     ('ABC Pharmaceuticals', '123 Pharma St, Medtown', 'abc@example.com'),
     ('XYZ Labs', '456 Science Blvd, Labville', 'xyz@example.com'),
-    ('Medical Innovations', '789 Health Ave, Cureburg', 'med@example.com');
+    ('Medical Innovations', '789 Health Ave, Cureburg', 'med@example.com'),
+    ('PharmaCare', '101 Medicine Road, Remedy City', 'pharmacare@example.com'),
+    ('Global Health Solutions', '555 Wellness Lane, Healington', 'globalhealth@example.com'),
+    ('CureTech Industries', '888 Remedy Street, Medville', 'curetech@example.com'),
+    ('BioMed Pharma', '202 Health Plaza, Biocity', 'biomed@example.com'),
+    ('LifeScience Innovators', '303 Cure Avenue, Lifetown', 'lifescience@example.com'),
+    ('Nature Cure Pharmaceuticals', '404 Herbal Lane, Naturville', 'naturecure@example.com'),
+    ('GenoMed Labs', '505 Genetic Blvd, Genetica', 'genomed@example.com');
 COMMIT;
 
 BEGIN TRANSACTION;
@@ -27,7 +34,18 @@ INSERT INTO specialization (Name, Description)
 VALUES
     ('Cardiology', 'Specializing in heart-related issues'),
     ('Orthopedics', 'Dealing with musculoskeletal disorders'),
-    ('Dermatology', 'Focus on skin conditions and diseases');
+    ('Dermatology', 'Focus on skin conditions and diseases'),
+    ('Gastroenterology', 'Specializing in digestive system disorders'),
+    ('Neurology', 'Dealing with disorders of the nervous system'),
+    ('Ophthalmology', 'Focus on eye and vision care'),
+    ('Otolaryngology', 'Specializing in ear, nose, and throat disorders'),
+    ('Urology', 'Dealing with urinary system disorders'),
+    ('Endocrinology', 'Specializing in endocrine system disorders'),
+    ('Rheumatology', 'Focus on autoimmune and inflammatory disorders'),
+    ('Pediatrics', 'Specializing in the care of children'),
+    ('Geriatrics', 'Dealing with health issues of the elderly'),
+    ('Pulmonology', 'Specializing in respiratory system disorders'),
+    ('Hematology', 'Dealing with blood disorders');
 COMMIT;
 
 BEGIN TRANSACTION;

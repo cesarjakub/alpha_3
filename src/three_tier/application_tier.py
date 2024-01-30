@@ -26,3 +26,6 @@ class Application:
 
     def create_doctor(self):
         pass
+
+    def import_scv_json(self):
+        pass
