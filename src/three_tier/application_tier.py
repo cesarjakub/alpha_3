@@ -8,6 +8,7 @@ class Application:
         self._running = True
         while self._running:
             self.presentation.mian_menu()
+            self.presentation.clear_console()
 
     def exit(self):
         self._running = False

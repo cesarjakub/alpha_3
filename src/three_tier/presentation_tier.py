@@ -15,7 +15,6 @@ class Presentation:
                    ("8. import csv/json", self.application.import_scv_json),
                    ("9. exit", self.application.exit)]
 
-        self.clear_console()
         print("+----------------------------------+")
         for text, work in options:
             print(text)
@@ -33,4 +32,6 @@ class Presentation:
         return options[selected_number-1][1]()
 
     def clear_console(self):
+        print("+----------------------------------+")
+        input("Press ENTER to continue")
         os.system('cls')
