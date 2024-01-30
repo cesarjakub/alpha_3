@@ -69,7 +69,7 @@ SELECT * FROM EPrescriptionView;
 
 GO
 CREATE VIEW Get_Specialization_name AS
-SELECT specialization.Name From specialization;
+SELECT specialization.Name, manufacturer.Name,  From specialization;
 GO
 
 
@@ -134,7 +134,7 @@ EXEC Create_medicine 'ABC Pharmaceuticals', 'Painkillers', 30, 3, 'Insurance';
 
 
 GO
-CREATE PROCEDURE AddEReceiptByNameAndDOB @PatientFirstName VARCHAR(20), @PatientLastName VARCHAR(20), @PatientDOB DATE, @MedicineName VARCHAR(50), @DoctorFirstName VARCHAR(20), @DoctorLastName VARCHAR(20), @Issued DATE, @Validity DATE
+CREATE PROCEDURE Create_prescription @PatientFirstName VARCHAR(20), @PatientLastName VARCHAR(20), @PatientDOB DATE, @MedicineName VARCHAR(50), @DoctorFirstName VARCHAR(20), @DoctorLastName VARCHAR(20), @Issued DATE, @Validity DATE
 AS
 BEGIN
     BEGIN TRANSACTION;
@@ -162,7 +162,7 @@ BEGIN
 END;
 GO
 
-EXEC AddEReceiptByNameAndDOB 'Jack', 'White', '1980-10-08', 'Painkillers', 'Sarah', 'Jones', '2024-01-30', '2024-02-02';
+EXEC Create_prescription 'Jack', 'White', '1980-10-08', 'Painkillers', 'Sarah', 'Jones', '2024-01-30', '2024-02-02';
 
 SELECT * FROM patient;
 SELECT * FROM manufacturer;
