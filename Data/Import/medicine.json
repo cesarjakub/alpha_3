@@ -1,0 +1,40 @@
+{
+    "medicines": [
+      {
+        "manufacturer_ID": 5,
+        "Name": "Aspirin",
+        "Amount": 20,
+        "Dosage": 500,
+        "Payment": "Patient"
+      },
+      {
+        "manufacturer_ID": 6,
+        "Name": "Ibuprofen",
+        "Amount": 30,
+        "Dosage": 200,
+        "Payment": "Patient"
+      },
+      {
+        "manufacturer_ID": 7,
+        "Name": "Amoxicillin",
+        "Amount": 15,
+        "Dosage": 250,
+        "Payment": "Insurance"
+      },
+      {
+        "manufacturer_ID": 8,
+        "Name": "Lisinopril",
+        "Amount": 10,
+        "Dosage": 10,
+        "Payment": "Insurance"
+      },
+      {
+        "manufacturer_ID": 9,
+        "Name": "Atorvastatin",
+        "Amount": 30,
+        "Dosage": 20,
+        "Payment": "Insurance"
+      }
+    ]
+  }
+  

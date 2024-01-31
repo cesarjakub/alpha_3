@@ -1,0 +1,39 @@
+{
+    "patients": [
+      {
+        "First_name": "Alice",
+        "Last_name": "Johnson",
+        "Date_of_birth": "1992-04-20",
+        "Address": "321 Elm St, Springfield, USA",
+        "health_insurance_number": 210
+      },
+      {
+        "First_name": "David",
+        "Last_name": "Miller",
+        "Date_of_birth": "1989-09-12",
+        "Address": "654 Birch St, Greenvale, USA",
+        "health_insurance_number": 207
+      },
+      {
+        "First_name": "Sophia",
+        "Last_name": "Davis",
+        "Date_of_birth": "1975-12-03",
+        "Address": "987 Cedar St, Lakeside, USA",
+        "health_insurance_number": 201
+      },
+      {
+        "First_name": "Daniel",
+        "Last_name": "Jones",
+        "Date_of_birth": "1998-06-28",
+        "Address": "111 Pine St, Mountainview, USA",
+        "health_insurance_number": 203
+      },
+      {
+        "First_name": "Olivia",
+        "Last_name": "Smith",
+        "Date_of_birth": "1980-02-15",
+        "Address": "555 Oak St, Hilltop, USA",
+        "health_insurance_number": 207
+      }
+    ]
+}
