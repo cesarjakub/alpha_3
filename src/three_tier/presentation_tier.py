@@ -12,7 +12,7 @@ class Presentation:
                    ("5. create medicine", self.application.create_medicine),
                    ("6. create patient", self.application.create_patient),
                    ("7. create doctor", self.application.create_doctor),
-                   ("8. import csv/json", self.application.import_scv_json),
+                   ("8. import json", self.application.import_scv_json),
                    ("9. exit", self.application.exit)]
 
         print("+----------------------------------+")
