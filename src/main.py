@@ -4,7 +4,6 @@ from three_tier import Database
 
 
 def main():
-
     app = Application()
 
     presentation = Presentation()
@@ -15,6 +14,7 @@ def main():
     app.database = db
 
     app.run()
+
 
 if __name__ == '__main__':
     main()
