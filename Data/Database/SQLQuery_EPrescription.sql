@@ -64,7 +64,8 @@ medicine.Name, medicine.Amount, medicine.Dosage, medicine.Payment
 FROM eprescription INNER JOIN patient ON eprescription.patient_ID = patient.ID INNER JOIN doctor ON eprescription.doctor_ID = doctor.ID INNER JOIN medicine ON eprescription.medicine_ID = medicine.ID;
 GO
 
-SELECT * FROM EPrescriptionView;
+SELECT * FROM EPrescriptionView WHERE e_ID = 1;
+SELECT e_ID FROM EPrescriptionView;
 
 
 GO

@@ -6,7 +6,6 @@
     "PWD": "1234"
   },
   "imports_path": {
-    "path_csv": "../Data/Import/patient.csv",
     "path_json": "../Data/Import/medicine.json"
   }
 }
