@@ -1,4 +1,6 @@
-from ..db_classes import Specialization
+import sys
+sys.path.append("..")
+from db_classes import Specialization
 
 class DAOSpecialization:
     def __init__(self, specialization: Specialization):

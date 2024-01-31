@@ -1,4 +1,6 @@
-from ..db_classes import Medicine
+import sys
+sys.path.append("..")
+from db_classes import Medicine
 
 class DAOMedicine:
     def __init__(self, medicine: Medicine):
