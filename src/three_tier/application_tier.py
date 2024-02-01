@@ -40,6 +40,9 @@ class Application:
         msg = self.database.import_json_data(which_data)
         self.presentation.print_message(msg)
 
+    def create_report(self):
+        pass
+
     def delete_prescription(self):
         pass
 
