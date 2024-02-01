@@ -43,7 +43,7 @@ class Database:
                 return "Data was successfully added"
             elif which_data.lower() == "patient":
                 for medicine in import_data.import_into_medicine()["patient"]:
-                    query = """INSERT INTO medicine patient (First_name, Last_name, Date_of_birth, Address, Health_insurance_number) 
+                    query = """INSERT INTO patient (First_name, Last_name, Date_of_birth, Address, Health_insurance_number) 
                                VALUES (?, ?, ?, ?, ?)"""
                     values = (medicine["First_name"], medicine["Last_name"], medicine["Date_of_birth"], medicine["Address"], medicine["health_insurance_number"])
                     cursor.execute(query, values)
