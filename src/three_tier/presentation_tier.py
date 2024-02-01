@@ -6,13 +6,13 @@ class Presentation:
 
     def mian_menu(self):
         options = [("1. display e-prescription by ID", self.application.get_prescription_by_id),
-                   ("2. delete e-prescription by ID", self.application.delete__prescription),
+                   ("2. delete e-prescription by ID", self.application.delete_prescription),
                    ("3. modify e-prescription", self.application.update_prescription),
                    ("4. create e-prescription", self.application.create_prescription),
                    ("5. create medicine", self.application.create_medicine),
                    ("6. create patient", self.application.create_patient),
                    ("7. create doctor", self.application.create_doctor),
-                   ("8. import json", self.application.import_scv_json),
+                   ("8. import json", self.application.import_json_data),
                    ("9. exit", self.application.exit)]
 
         print("+----------------------------------+")
@@ -43,17 +43,28 @@ class Presentation:
         else:
             print("There are no records")
 
-    def new_id_input(self):
+    def new_id_input(self, text):
         id_input = None
         while id_input is None:
             try:
-                id_input = int(input("Please Enter ID of e-prescription: "))
+                id_input = int(input(text))
                 return id_input
             except Exception:
                 print("Please enter valid input")
                 id_input = None
 
     # second option
+
+    # eighth option
+    def new_input(self, text):
+        user_input = None
+        while user_input is None:
+            try:
+                user_input = input(text)
+                return user_input
+            except Exception:
+                print("Please enter valid input")
+                user_input = None
 
     # print id
     def print_just_ids(self, ids):
@@ -69,3 +80,7 @@ class Presentation:
         print("+----------------------------------+")
         input("Press ENTER to continue")
         os.system('cls')
+
+    # print message
+    def print_message(self, message):
+        print(message)
