@@ -13,7 +13,7 @@ class Presentation:
                    ("6. create patient", self.application.create_patient),
                    ("7. create doctor", self.application.create_doctor),
                    ("8. import json", self.application.import_json_data),#
-                   ("9. Generate report", self.application.create_report),
+                   ("9. generate report", self.application.create_report),
                    ("10. exit", self.application.exit)]#
 
         print("+----------------------------------+")
@@ -37,12 +37,12 @@ class Presentation:
         labels = ['ID', 'First Name', 'Last Name', 'Date of Birth', 'Health insurance number', 'Issued',
                   'Validity', 'Title', 'Doctor First Name', 'Doctor Last Name', 'Phone Number',
                   'Medication', 'Amount', 'Dosage', 'Payment']
-        if num_of_rows != 0:
-            for prescription in prescriptions:
-                for label, pres in zip(labels, prescription):
-                    print(f"{label}: {pres}")
-        else:
+        if num_of_rows == 0:
             print("There are no records")
+        for prescription in prescriptions:
+            for label, pres in zip(labels, prescription):
+                print(f"{label}: {pres}")
+
 
     def new_id_input(self, text):
         id_input = None
@@ -66,6 +66,25 @@ class Presentation:
             except Exception:
                 print("Please enter valid input")
                 user_input = None
+
+    # ninth option
+    def print_report(self, prescriptions, num_of_rows):
+        report = ""
+        if num_of_rows == 0:
+            print("There are no records")
+        for prescription in prescriptions:
+            patient_info = f"Patient: {prescription[1]} {prescription[2]} {prescription[3]}\t  ZP: {prescription[4]}"
+            issued_validity = f"Issued: {prescription[5]} \tValidity: {prescription[6]}"
+            doctor_info = f"Doctor: {prescription[7]} {prescription[8]} {prescription[9]}\ttelefon: {prescription[10]}"
+            medication_info = f"Lék:\n\t{prescription[11]}\n\tAmount: {prescription[12]} \tDosage: {prescription[13]}\n\tpayment: {prescription[14]}"
+            report += "=" * 64 + "\n"
+            report += f"{patient_info}\n{issued_validity}\n"
+            report += "=" * 64 + "\n"
+            report += f"{doctor_info}\n"
+            report += "=" * 64 + "\n"
+            report += f"{medication_info}\n"
+            report += "=" * 64 + "\n"
+        return report
 
     # print id
     def print_just_ids(self, ids):

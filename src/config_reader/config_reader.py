@@ -23,3 +23,11 @@ class ConfigReader:
         path_json = file_imports_data["imports_path"]["path_json"]
 
         return path_json
+
+    def get_export_config(self):
+        with open(self.path, "r") as reader:
+            file_imports_data = json.load(reader)
+
+        path_json = file_imports_data["export_path"]["path"]
+
+        return path_json

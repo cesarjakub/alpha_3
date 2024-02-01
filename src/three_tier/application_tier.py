@@ -40,8 +40,13 @@ class Application:
         msg = self.database.import_json_data(which_data)
         self.presentation.print_message(msg)
 
+    # ninth option
     def create_report(self):
-        pass
+        e_id = self.presentation.new_id_input("Please Enter ID of e-prescription: ")
+        prescription, num_of_rows = self.database.get_prescription_by_id(e_id)
+        data = self.presentation.print_report(prescription, num_of_rows)
+        msg = self.database.create_report(data)
+        self.presentation.print_message(msg)
 
     def delete_prescription(self):
         pass

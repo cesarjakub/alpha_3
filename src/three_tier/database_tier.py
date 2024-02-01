@@ -9,6 +9,7 @@ from db_classes import Medicine
 from database_conn import DBConnection
 
 from import_export_data import ImportData
+from import_export_data import ExportData
 
 class Database:
     def __init__(self):
@@ -56,3 +57,12 @@ class Database:
             return f"ERROR PLEASE TRY AGAIN {e}"
         finally:
             DBConnection.close_connection()
+
+    # ninth option
+    def create_report(self, data):
+        try:
+            export_data = ExportData()
+            export_data.export_into_file(data)
+            return "Report is created please check \"Data/Export/export.txt\" file"
+        except:
+            return "Something went wrong"
