@@ -75,7 +75,7 @@ class Presentation:
         for prescription in prescriptions:
             patient_info = f"Patient: {prescription[1]} {prescription[2]} {prescription[3]}\t  ZP: {prescription[4]}"
             issued_validity = f"Issued: {prescription[5]} \tValidity: {prescription[6]}"
-            doctor_info = f"Doctor: {prescription[7]} {prescription[8]} {prescription[9]}\ttelefon: {prescription[10]}"
+            doctor_info = f"Doctor: {prescription[7]} {prescription[8]} {prescription[9]}\ttelephone: {prescription[10]}"
             medication_info = f"Lék:\n\t{prescription[11]}\n\tAmount: {prescription[12]} \tDosage: {prescription[13]}\n\tpayment: {prescription[14]}"
             report += "=" * 64 + "\n"
             report += f"{patient_info}\n{issued_validity}\n"

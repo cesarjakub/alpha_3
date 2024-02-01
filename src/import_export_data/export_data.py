@@ -1,8 +1,7 @@
-import os
+import uuid
 import sys
 sys.path.append("..")
 from config_reader import ConfigReader
-import json
 
 class ExportData:
     def __init__(self):
@@ -14,6 +13,7 @@ class ExportData:
         return path
 
     def export_into_file(self, data):
-        with open(self.export_data_from_json(), "a") as writer:
+        uuid_timestamp = uuid.uuid1()
+        with open(f"{self.export_data_from_json()}_{uuid_timestamp}.txt", "w", encoding="utf-8") as writer:
             writer.write(data)
 
