@@ -48,8 +48,13 @@ class Application:
         msg = self.database.create_report(data)
         self.presentation.print_message(msg)
 
+    # second option
     def delete_prescription(self):
-        pass
+        ids = self.database.get_just_ids()
+        self.presentation.print_just_ids(ids)
+        e_id = self.presentation.new_id_input("Please Enter ID of e-prescription: ")
+        msg = self.database.delete_prescription_by_id(e_id)
+        self.presentation.print_message(msg)
 
     def update_prescription(self):
         pass

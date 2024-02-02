@@ -21,6 +21,19 @@ class DAOEPrescription:
         finally:
             DBConnection.close_connection()
 
+    def delete_prescription_by_id(self, e_id):
+        try:
+            connection = DBConnection.connect()
+            cursor = connection.cursor()
+            query = "DELETE FROM eprescription WHERE ID = ?;"
+            cursor.execute(query, (e_id,))
+            cursor.commit()
+            return "The e-prescription has been successfully deleted"
+        except:
+            return "Something went wrong"
+        finally:
+            DBConnection.close_connection()
+
     def get_just_ids(self):
         try:
             connection = DBConnection.connect()

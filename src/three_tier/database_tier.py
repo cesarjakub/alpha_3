@@ -28,6 +28,11 @@ class Database:
         ids = self.daoeprescription.get_just_ids()
         return ids
 
+    # second option
+    def delete_prescription_by_id(self, e_id):
+        msg = self.daoeprescription.delete_prescription_by_id(e_id)
+        return msg
+
     # eighth option
     def import_json_data(self, which_data: str):
         try:

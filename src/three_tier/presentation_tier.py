@@ -6,14 +6,14 @@ class Presentation:
 
     def mian_menu(self):
         options = [("1. display e-prescription by ID", self.application.get_prescription_by_id),#
-                   ("2. delete e-prescription by ID", self.application.delete_prescription),
+                   ("2. delete e-prescription by ID", self.application.delete_prescription),#
                    ("3. modify e-prescription", self.application.update_prescription),
                    ("4. create e-prescription", self.application.create_prescription),
                    ("5. create medicine", self.application.create_medicine),
                    ("6. create patient", self.application.create_patient),
                    ("7. create doctor", self.application.create_doctor),
                    ("8. import json", self.application.import_json_data),#
-                   ("9. generate report", self.application.create_report),
+                   ("9. generate report", self.application.create_report),#
                    ("10. exit", self.application.exit)]#
 
         print("+----------------------------------+")
@@ -53,8 +53,6 @@ class Presentation:
             except Exception:
                 print("Please enter valid input")
                 id_input = None
-
-    # second option
 
     # eighth option
     def new_input(self, text):
