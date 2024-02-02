@@ -164,6 +164,8 @@ END;
 GO
 
 EXEC Create_prescription 'Jack', 'White', '1980-10-08', 'Painkillers', 'Sarah', 'Jones', '2024-01-30', '2024-02-02';
+DELETE FROM eprescription WHERE ID = 4;
+
 
 SELECT * FROM patient;
 SELECT * FROM manufacturer;
