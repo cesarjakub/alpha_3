@@ -22,8 +22,14 @@ class Application:
         prescription, num_of_rows = self.database.get_prescription_by_id(e_id)
         self.presentation.print_prescription_by_id(prescription, num_of_rows)
 
+    # fourth option
     def create_prescription(self):
-        pass
+        try:
+            first_name, last_name, patientDOB, medicine_name, doctor_first_name, doctor_last_name, issued, validity = self.presentation.ask_for_prescription_input()
+            msg = self.database.create_prescription(first_name, last_name, patientDOB, medicine_name, doctor_first_name, doctor_last_name, issued, validity)
+            self.presentation.print_message(msg)
+        except Exception as e:
+            self.presentation.print_message(e)
 
     # fifth option
     def create_medicine(self):
