@@ -28,11 +28,23 @@ class Application:
     def create_medicine(self):
         pass
 
+    # sixth option
     def create_patient(self):
-        pass
+        try:
+            first_name, last_name, date_of_Birth, address, health_insurance_number = self.presentation.ask_for_patient_input()
+            msg = self.database.create_patient(first_name, last_name, date_of_Birth, address, health_insurance_number)
+            self.presentation.print_message(msg)
+        except Exception as e:
+            self.presentation.print_message(e)
 
+    # seventh option
     def create_doctor(self):
-        pass
+        try:
+            spec_name, first_name, last_name, title, date_of_birth, tel = self.presentation.ask_for_doctor_input()
+            msg = self.database.create_doctor(spec_name, first_name, last_name, title, date_of_birth, tel)
+            self.presentation.print_message(msg)
+        except Exception as e:
+            self.presentation.print_message(e)
 
     # eighth option
     def import_json_data(self):

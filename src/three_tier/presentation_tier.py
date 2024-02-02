@@ -1,3 +1,4 @@
+import datetime
 import os
 
 class Presentation:
@@ -9,9 +10,9 @@ class Presentation:
                    ("2. delete e-prescription by ID", self.application.delete_prescription),#
                    ("3. modify e-prescription", self.application.update_prescription),
                    ("4. create e-prescription", self.application.create_prescription),
-                   ("5. create medicine", self.application.create_medicine),
-                   ("6. create patient", self.application.create_patient),
-                   ("7. create doctor", self.application.create_doctor),
+                   ("5. create medicine", self.application.create_medicine),#-
+                   ("6. create patient", self.application.create_patient),#
+                   ("7. create doctor", self.application.create_doctor),#--
                    ("8. import json", self.application.import_json_data),#
                    ("9. generate report", self.application.create_report),#
                    ("10. exit", self.application.exit)]#
@@ -53,6 +54,39 @@ class Presentation:
             except Exception:
                 print("Please enter valid input")
                 id_input = None
+
+    # sixth option
+    def ask_for_patient_input(self):
+        try:
+            first_name = input("Enter the patient's first name: ")
+            last_name = input("Enter the patient's first name: ")
+            date_of_Birth = datetime.datetime.strptime(input("Enter the patient's birth date (YYYY-MM-DD): "), "%Y-%m-%d")
+            address = input("Enter the patient's address: ")
+            health_insurance_number = int(input("Enter the patient's health insurance number: "))
+
+            if None in [first_name, last_name, date_of_Birth, address, health_insurance_number]:
+                self.ask_for_patient_input()
+
+            return first_name, last_name, date_of_Birth, address, health_insurance_number
+        except:
+            raise Exception("Error please try again")
+
+    # seventh option
+    def ask_for_doctor_input(self):
+        try:
+            spec_name = input("Enter specialization name: ")
+            first_name = input("Enter the doctor's first name: ")
+            last_name = input("Enter the doctor's last name: ")
+            title = input("Enter the doctor's title ('Dr.','PhD'): ")
+            date_of_birth = datetime.datetime.strptime(input("Enter the doctor's birth date (YYYY-MM-DD): "), "%Y-%m-%d")
+            tel = input("Enter the doctor's telephone: ")
+
+            if None in [spec_name, first_name, last_name, title, date_of_birth, tel]:
+                self.ask_for_doctor_input()
+
+            return spec_name, first_name, last_name, title, date_of_birth, tel
+        except:
+            raise Exception("Error please try again")
 
     # eighth option
     def new_input(self, text):

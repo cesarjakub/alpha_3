@@ -6,6 +6,9 @@ from DAO import DAOPatient
 from db_classes import Patient
 from DAO import DAOMedicine
 from db_classes import Medicine
+from db_classes import Doctor
+from DAO import DAODoctor
+
 from database_conn import DBConnection
 
 from import_export_data import ImportData
@@ -16,6 +19,7 @@ class Database:
         self.daoeprescription = DAOEPrescription(EPrescription())
         self.daopatient = DAOPatient(Patient())
         self.daomedicine = DAOMedicine(Medicine())
+        self.daodoctor = DAODoctor(Doctor())
 
     # first option
     def get_prescription_by_id(self, e_id):
@@ -31,6 +35,16 @@ class Database:
     # second option
     def delete_prescription_by_id(self, e_id):
         msg = self.daoeprescription.delete_prescription_by_id(e_id)
+        return msg
+
+    # sixth option
+    def create_patient(self, first_name, last_name, date_of_Birth, address, health_insurance_number):
+        msg = self.daopatient.create_patient(first_name, last_name, date_of_Birth, address, health_insurance_number)
+        return msg
+
+    # seventh option
+    def create_doctor(self, spec_name, first_name, last_name, title, date_of_birth, tel):
+        msg = self.daodoctor.create_doctor(spec_name, first_name, last_name, title, date_of_birth, tel)
         return msg
 
     # eighth option
