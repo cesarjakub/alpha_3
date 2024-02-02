@@ -15,7 +15,7 @@ class DAOPatient:
             values = (first_name, last_name, date_of_Birth, address, health_insurance_number)
             cursor.execute(query, values)
             cursor.commit()
-            return "Doctor created successfully"
+            return "Patient created successfully"
         except:
             return "Something went wrong"
         finally:

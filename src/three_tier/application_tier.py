@@ -25,8 +25,14 @@ class Application:
     def create_prescription(self):
         pass
 
+    # fifth option
     def create_medicine(self):
-        pass
+        try:
+            manufacturer_name, medicine_name, Amount, Dosage, Payment = self.presentation.ask_for_medicine_input()
+            msg = self.database.create_medicine(manufacturer_name, medicine_name, Amount, Dosage, Payment)
+            self.presentation.print_message(msg)
+        except Exception as e:
+            self.presentation.print_message(e)
 
     # sixth option
     def create_patient(self):

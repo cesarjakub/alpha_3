@@ -10,9 +10,9 @@ class Presentation:
                    ("2. delete e-prescription by ID", self.application.delete_prescription),#
                    ("3. modify e-prescription", self.application.update_prescription),
                    ("4. create e-prescription", self.application.create_prescription),
-                   ("5. create medicine", self.application.create_medicine),#-
+                   ("5. create medicine", self.application.create_medicine),# dodelat aby videl nazvy manufactureru
                    ("6. create patient", self.application.create_patient),#
-                   ("7. create doctor", self.application.create_doctor),#--
+                   ("7. create doctor", self.application.create_doctor),# dodělat ješte názvy specializací
                    ("8. import json", self.application.import_json_data),#
                    ("9. generate report", self.application.create_report),#
                    ("10. exit", self.application.exit)]#
@@ -55,6 +55,22 @@ class Presentation:
                 print("Please enter valid input")
                 id_input = None
 
+    # fifth option
+    def ask_for_medicine_input(self):
+        try:
+            manufacturer_name = input("Enter the manufacturer's name: ")
+            medicine_name = input("Enter the medicine's name: ")
+            Amount = int(input("Enter the amount: "))
+            Dosage = int(input("Enter the dosage: "))
+            Payment = input("Enter the payment (Insurance/Patient): ")
+
+            if None in [manufacturer_name, medicine_name, Amount, Dosage, Payment]:
+                self.ask_for_medicine_input()
+
+            return manufacturer_name, medicine_name, Amount, Dosage, Payment
+        except:
+            raise Exception("Error please try again")
+
     # sixth option
     def ask_for_patient_input(self):
         try:
@@ -77,7 +93,7 @@ class Presentation:
             spec_name = input("Enter specialization name: ")
             first_name = input("Enter the doctor's first name: ")
             last_name = input("Enter the doctor's last name: ")
-            title = input("Enter the doctor's title ('Dr.','PhD'): ")
+            title = input("Enter the doctor's title ('Dr.' OR 'PhD'): ")
             date_of_birth = datetime.datetime.strptime(input("Enter the doctor's birth date (YYYY-MM-DD): "), "%Y-%m-%d")
             tel = input("Enter the doctor's telephone: ")
 

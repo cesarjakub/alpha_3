@@ -37,6 +37,11 @@ class Database:
         msg = self.daoeprescription.delete_prescription_by_id(e_id)
         return msg
 
+    # fifth option
+    def create_medicine(self, manufacturer_name, medicine_name, Amount, Dosage, Payment):
+        msg = self.daomedicine.create_medicine(manufacturer_name, medicine_name, Amount, Dosage, Payment)
+        return msg
+
     # sixth option
     def create_patient(self, first_name, last_name, date_of_Birth, address, health_insurance_number):
         msg = self.daopatient.create_patient(first_name, last_name, date_of_Birth, address, health_insurance_number)
