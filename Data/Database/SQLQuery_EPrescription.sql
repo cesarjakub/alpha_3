@@ -166,6 +166,43 @@ GO
 EXEC Create_prescription 'Jack', 'White', '1980-10-08', 'Painkillers', 'Sarah', 'Jones', '2024-01-30', '2024-02-02';
 DELETE FROM eprescription WHERE ID = 4;
 
+GO
+CREATE PROCEDURE Update_prescription @ID INT, @PatientFirstName VARCHAR(20), @PatientLastName VARCHAR(20), @PatientDOB DATE, @MedicineName VARCHAR(50), @DoctorFirstName VARCHAR(20), @DoctorLastName VARCHAR(20), @Issued DATE, @Validity DATE
+AS
+BEGIN
+    BEGIN TRANSACTION;
+
+    DECLARE @PatientID INT;
+    DECLARE @MedicineID INT;
+    DECLARE @DoctorID INT;
+
+    SELECT @PatientID = ID
+    FROM patient
+    WHERE First_name = @PatientFirstName AND Last_name = @PatientLastName AND Date_of_birth = @PatientDOB;
+
+    SELECT @MedicineID = ID
+    FROM medicine
+    WHERE Name = @MedicineName;
+
+    SELECT @DoctorID = ID
+    FROM doctor
+    WHERE First_name = @DoctorFirstName AND Last_name = @DoctorLastName;
+
+    UPDATE eprescription 
+    SET 
+        eprescription.patient_ID = @PatientID,
+        eprescription.medicine_ID = @MedicineID,
+        eprescription.doctor_ID = @DoctorID,
+        eprescription.Issued = @Issued,
+        eprescription.Validity = @Validity
+    WHERE
+        eprescription.ID = @ID;
+
+    COMMIT;
+END;
+GO
+
+
 
 SELECT * FROM patient;
 SELECT * FROM manufacturer;

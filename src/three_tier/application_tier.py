@@ -22,6 +22,16 @@ class Application:
         prescription, num_of_rows = self.database.get_prescription_by_id(e_id)
         self.presentation.print_prescription_by_id(prescription, num_of_rows)
 
+    # third option
+    def update_prescription(self):
+        try:
+
+            e_id, first_name, last_name, patientDOB, medicine_name, doctor_first_name, doctor_last_name, issued, validity = self.presentation.ask_for_update_prescription_input()
+            msg = self.database.update_prescription(e_id, first_name, last_name, patientDOB, medicine_name, doctor_first_name, doctor_last_name, issued, validity)
+            self.presentation.print_message(msg)
+        except Exception as e:
+            self.presentation.print_message(e)
+
     # fourth option
     def create_prescription(self):
         try:

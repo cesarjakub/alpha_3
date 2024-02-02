@@ -8,8 +8,8 @@ class Presentation:
     def mian_menu(self):
         options = [("1. display e-prescription by ID", self.application.get_prescription_by_id),#
                    ("2. delete e-prescription by ID", self.application.delete_prescription),#
-                   ("3. modify e-prescription", self.application.update_prescription),
-                   ("4. create e-prescription", self.application.create_prescription),#--
+                   ("3. modify e-prescription", self.application.update_prescription),#--
+                   ("4. create e-prescription", self.application.create_prescription),#
                    ("5. create medicine", self.application.create_medicine),# dodelat aby videl nazvy manufactureru
                    ("6. create patient", self.application.create_patient),#
                    ("7. create doctor", self.application.create_doctor),# dodělat ješte názvy specializací
@@ -54,6 +54,27 @@ class Presentation:
             except Exception:
                 print("Please enter valid input")
                 id_input = None
+
+    # third option
+    def ask_for_update_prescription_input(self):
+        try:
+            e_id = int(input("Enter prescriptions id: "))
+            first_name = input("Enter patient's first name: ")
+            last_name = input("Enter patient's last name: ")
+            patientDOB = datetime.datetime.strptime(input("Enter the patient's birth date (YYYY-MM-DD): "), "%Y-%m-%d")
+            medicine_name = input("Enter medicine's name: ")
+            doctor_first_name = input("Enter doctor's first name: ")
+            doctor_last_name = input("Enter doctor's last name: ")
+            issued = datetime.datetime.strptime(input("Enter the date the prescription was issued (YYYY-MM-DD): "),"%Y-%m-%d")
+            validity = datetime.datetime.strptime(input("Enter the validity period of the prescription (YYYY-MM-DD): "),"%Y-%m-%d")
+
+            if None in [e_id, first_name, last_name, patientDOB, medicine_name, doctor_first_name, doctor_last_name, issued,
+                        validity]:
+                self.ask_for_prescription_input()
+
+            return e_id, first_name, last_name, patientDOB, medicine_name, doctor_first_name, doctor_last_name, issued, validity
+        except:
+            raise Exception("Error please try again")
 
     # fourth prescription
     def ask_for_prescription_input(self):

@@ -7,6 +7,19 @@ class DAOEPrescription:
     def __init__(self, eprescription: EPrescription):
         self.eprescription = eprescription
 
+    def update_prescription(self, e_id, first_name, last_name, patientDOB, medicine_name, doctor_first_name, doctor_last_name, issued, validity):
+        try:
+            connection = DBConnection.connect()
+            cursor = connection.cursor()
+            query = "EXEC Update_prescription ?, ?, ?, ?, ?, ?, ?, ?, ?;"
+            values = (e_id, first_name, last_name, patientDOB, medicine_name, doctor_first_name, doctor_last_name, issued, validity)
+            cursor.execute(query, values)
+            cursor.commit()
+            return "Prescription updated successfully"
+        except:
+            return "Something went wrong"
+        finally:
+            DBConnection.close_connection()
 
     def create_prescription(self, first_name, last_name, patientDOB, medicine_name, doctor_first_name, doctor_last_name, issued, validity):
         try:
