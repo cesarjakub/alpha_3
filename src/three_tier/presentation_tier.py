@@ -6,15 +6,15 @@ class Presentation:
         self.application = None
 
     def mian_menu(self):
-        options = [("1. display e-prescription by ID", self.application.get_prescription_by_id),#
-                   ("2. delete e-prescription by ID", self.application.delete_prescription),#
-                   ("3. modify e-prescription", self.application.update_prescription),#--
-                   ("4. create e-prescription", self.application.create_prescription),#
-                   ("5. create medicine", self.application.create_medicine),# dodelat aby videl nazvy manufactureru
-                   ("6. create patient", self.application.create_patient),#
+        options = [("1. display e-prescription by ID", self.application.get_prescription_by_id),
+                   ("2. delete e-prescription by ID", self.application.delete_prescription),
+                   ("3. modify e-prescription", self.application.update_prescription),
+                   ("4. create e-prescription", self.application.create_prescription),
+                   ("5. create medicine", self.application.create_medicine),
+                   ("6. create patient", self.application.create_patient),
                    ("7. create doctor", self.application.create_doctor),# dodělat ješte názvy specializací
-                   ("8. import json", self.application.import_json_data),#
-                   ("9. generate report", self.application.create_report),#
+                   ("8. import json", self.application.import_json_data),
+                   ("9. generate report", self.application.create_report),
                    ("10. exit", self.application.exit)]#
 
         print("+----------------------------------+")
@@ -74,7 +74,7 @@ class Presentation:
 
             return e_id, first_name, last_name, patientDOB, medicine_name, doctor_first_name, doctor_last_name, issued, validity
         except:
-            raise Exception("Error please try again")
+            raise Exception("Error wrong input try again")
 
     # fourth prescription
     def ask_for_prescription_input(self):
@@ -93,7 +93,7 @@ class Presentation:
 
             return first_name, last_name, patientDOB, medicine_name, doctor_first_name, doctor_last_name, issued, validity
         except:
-            raise Exception("Error please try again")
+            raise Exception("Error wrong input try again")
 
     # fifth option
     def ask_for_medicine_input(self):
@@ -109,7 +109,15 @@ class Presentation:
 
             return manufacturer_name, medicine_name, Amount, Dosage, Payment
         except:
-            raise Exception("Error please try again")
+            raise Exception("Error wrong input try again")
+
+    def print_manufacturer(self, manufacturer):
+        print("+----------------------------------+")
+        manufacturer_list = []
+        for manufacturer_tuple in manufacturer:
+            manufacturer_list.append(str(manufacturer_tuple[0]))
+        result = ', '.join(manufacturer_list)
+        print(f'Manufacturers: {result}')
 
     # sixth option
     def ask_for_patient_input(self):
@@ -125,7 +133,7 @@ class Presentation:
 
             return first_name, last_name, date_of_Birth, address, health_insurance_number
         except:
-            raise Exception("Error please try again")
+            raise Exception("Error wrong input try again")
 
     # seventh option
     def ask_for_doctor_input(self):
@@ -142,7 +150,7 @@ class Presentation:
 
             return spec_name, first_name, last_name, title, date_of_birth, tel
         except:
-            raise Exception("Error please try again")
+            raise Exception("Error wrong input try again")
 
     # eighth option
     def new_input(self, text):

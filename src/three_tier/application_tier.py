@@ -25,7 +25,8 @@ class Application:
     # third option
     def update_prescription(self):
         try:
-
+            ids = self.database.get_just_ids()
+            self.presentation.print_just_ids(ids)
             e_id, first_name, last_name, patientDOB, medicine_name, doctor_first_name, doctor_last_name, issued, validity = self.presentation.ask_for_update_prescription_input()
             msg = self.database.update_prescription(e_id, first_name, last_name, patientDOB, medicine_name, doctor_first_name, doctor_last_name, issued, validity)
             self.presentation.print_message(msg)
@@ -44,6 +45,8 @@ class Application:
     # fifth option
     def create_medicine(self):
         try:
+            manufacturer = self.database.get_manufacturer()
+            self.presentation.print_manufacturer(manufacturer)
             manufacturer_name, medicine_name, Amount, Dosage, Payment = self.presentation.ask_for_medicine_input()
             msg = self.database.create_medicine(manufacturer_name, medicine_name, Amount, Dosage, Payment)
             self.presentation.print_message(msg)
@@ -89,6 +92,3 @@ class Application:
         e_id = self.presentation.new_id_input("Please Enter ID of e-prescription: ")
         msg = self.database.delete_prescription_by_id(e_id)
         self.presentation.print_message(msg)
-
-    def update_prescription(self):
-        pass

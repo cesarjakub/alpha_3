@@ -8,6 +8,8 @@ from DAO import DAOMedicine
 from db_classes import Medicine
 from db_classes import Doctor
 from DAO import DAODoctor
+from db_classes import Manufacturer
+from DAO import DAOManufacturer
 
 from database_conn import DBConnection
 
@@ -20,6 +22,7 @@ class Database:
         self.daopatient = DAOPatient(Patient())
         self.daomedicine = DAOMedicine(Medicine())
         self.daodoctor = DAODoctor(Doctor())
+        self.daomanufacturer = DAOManufacturer(Manufacturer())
 
     # first option
     def get_prescription_by_id(self, e_id):
@@ -51,6 +54,12 @@ class Database:
     def create_medicine(self, manufacturer_name, medicine_name, Amount, Dosage, Payment):
         msg = self.daomedicine.create_medicine(manufacturer_name, medicine_name, Amount, Dosage, Payment)
         return msg
+
+    def get_manufacturer(self):
+        manufacturer_list = list()
+        manufacturer = self.daomanufacturer.get_manufacturer()
+        manufacturer_list = manufacturer
+        return manufacturer_list
 
     # sixth option
     def create_patient(self, first_name, last_name, date_of_Birth, address, health_insurance_number):

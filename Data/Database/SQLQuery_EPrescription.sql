@@ -202,7 +202,7 @@ BEGIN
 END;
 GO
 
-
+EXEC Update_prescription 3, 'Olivia','Smith','1980-02-15','Atorvastatin','Joe','Frajer','2022-03-15','2022-04-15';
 
 SELECT * FROM patient;
 SELECT * FROM manufacturer;
