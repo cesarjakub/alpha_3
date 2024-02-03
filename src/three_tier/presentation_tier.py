@@ -15,7 +15,7 @@ class Presentation:
                    ("7. create doctor", self.application.create_doctor),# dodělat ješte názvy specializací
                    ("8. import json", self.application.import_json_data),
                    ("9. generate report", self.application.create_report),
-                   ("10. exit", self.application.exit)]#
+                   ("10. exit", self.application.exit)]
 
         print("+----------------------------------+")
         for text, work in options:
@@ -29,7 +29,7 @@ class Presentation:
                 if selected_number < 0 or selected_number > len(options):
                     raise Exception()
             except Exception:
-                print("Please enter valid input")
+                self.print_message("Please enter valid input")
                 selected_number = None
         return options[selected_number-1][1]()
 
@@ -39,7 +39,7 @@ class Presentation:
                   'Validity', 'Title', 'Doctor First Name', 'Doctor Last Name', 'Phone Number',
                   'Medication', 'Amount', 'Dosage', 'Payment']
         if num_of_rows == 0:
-            print("There are no records")
+            self.print_message("There are no records")
         for prescription in prescriptions:
             for label, pres in zip(labels, prescription):
                 print(f"{label}: {pres}")
@@ -52,7 +52,7 @@ class Presentation:
                 id_input = int(input(text))
                 return id_input
             except Exception:
-                print("Please enter valid input")
+                self.print_message("Please enter valid input")
                 id_input = None
 
     # third option
@@ -111,14 +111,6 @@ class Presentation:
         except:
             raise Exception("Error wrong input try again")
 
-    def print_manufacturer(self, manufacturer):
-        print("+----------------------------------+")
-        manufacturer_list = []
-        for manufacturer_tuple in manufacturer:
-            manufacturer_list.append(str(manufacturer_tuple[0]))
-        result = ', '.join(manufacturer_list)
-        print(f'Manufacturers: {result}')
-
     # sixth option
     def ask_for_patient_input(self):
         try:
@@ -160,14 +152,14 @@ class Presentation:
                 user_input = input(text)
                 return user_input
             except Exception:
-                print("Please enter valid input")
+                self.print_message("Please enter valid input")
                 user_input = None
 
     # ninth option
     def print_report(self, prescriptions, num_of_rows):
         report = ""
         if num_of_rows == 0:
-            print("There are no records")
+            self.print_message("There are no records")
         for prescription in prescriptions:
             patient_info = f"Patient: {prescription[1]} {prescription[2]} {prescription[3]}\t  ZP: {prescription[4]}"
             issued_validity = f"Issued: {prescription[5]} \tValidity: {prescription[6]}"
@@ -183,17 +175,17 @@ class Presentation:
         return report
 
     # print id
-    def print_just_ids(self, ids):
-        print("+----------------------------------+")
-        id_list = []
-        for id_tuple in ids:
-            id_list.append(str(id_tuple[0]))
-        result = ','.join(id_list)
-        print(f'ids: {result}')
+    def help_print(self, tmp, text):
+        self.print_message("+----------------------------------+")
+        temp_list = []
+        for tmp_tuple in tmp:
+            temp_list.append(str(tmp_tuple[0]))
+        result = ', '.join(temp_list)
+        self.print_message(f'{text}: {result}')
 
     # clear console
     def clear_console(self):
-        print("+----------------------------------+")
+        self.print_message("+----------------------------------+")
         input("Press ENTER to continue")
         os.system('cls')
 

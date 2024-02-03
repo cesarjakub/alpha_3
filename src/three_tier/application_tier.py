@@ -16,17 +16,19 @@ class Application:
 
     # first option
     def get_prescription_by_id(self):
-        ids = self.database.get_just_ids()
-        self.presentation.print_just_ids(ids)
-        e_id = self.presentation.new_id_input("Please Enter ID of e-prescription: ")
-        prescription, num_of_rows = self.database.get_prescription_by_id(e_id)
-        self.presentation.print_prescription_by_id(prescription, num_of_rows)
-
+        try:
+            ids = self.database.get_just_ids()
+            self.presentation.help_print(ids, "ids")
+            e_id = self.presentation.new_id_input("Please Enter ID of e-prescription: ")
+            prescription, num_of_rows = self.database.get_prescription_by_id(e_id)
+            self.presentation.print_prescription_by_id(prescription, num_of_rows)
+        except KeyboardInterrupt:
+            self.presentation.print_message("Please enter valid input")
     # third option
     def update_prescription(self):
         try:
             ids = self.database.get_just_ids()
-            self.presentation.print_just_ids(ids)
+            self.presentation.help_print(ids, "ids")
             e_id, first_name, last_name, patientDOB, medicine_name, doctor_first_name, doctor_last_name, issued, validity = self.presentation.ask_for_update_prescription_input()
             msg = self.database.update_prescription(e_id, first_name, last_name, patientDOB, medicine_name, doctor_first_name, doctor_last_name, issued, validity)
             self.presentation.print_message(msg)
@@ -46,7 +48,7 @@ class Application:
     def create_medicine(self):
         try:
             manufacturer = self.database.get_manufacturer()
-            self.presentation.print_manufacturer(manufacturer)
+            self.presentation.help_print(manufacturer, "Manufacturer")
             manufacturer_name, medicine_name, Amount, Dosage, Payment = self.presentation.ask_for_medicine_input()
             msg = self.database.create_medicine(manufacturer_name, medicine_name, Amount, Dosage, Payment)
             self.presentation.print_message(msg)
@@ -65,6 +67,8 @@ class Application:
     # seventh option
     def create_doctor(self):
         try:
+            specialization = self.database.get_specialization()
+            self.presentation.help_print(specialization, "Specialization")
             spec_name, first_name, last_name, title, date_of_birth, tel = self.presentation.ask_for_doctor_input()
             msg = self.database.create_doctor(spec_name, first_name, last_name, title, date_of_birth, tel)
             self.presentation.print_message(msg)
@@ -79,6 +83,8 @@ class Application:
 
     # ninth option
     def create_report(self):
+        ids = self.database.get_just_ids()
+        self.presentation.help_print(ids, "ids")
         e_id = self.presentation.new_id_input("Please Enter ID of e-prescription: ")
         prescription, num_of_rows = self.database.get_prescription_by_id(e_id)
         data = self.presentation.print_report(prescription, num_of_rows)
@@ -87,8 +93,11 @@ class Application:
 
     # second option
     def delete_prescription(self):
-        ids = self.database.get_just_ids()
-        self.presentation.print_just_ids(ids)
-        e_id = self.presentation.new_id_input("Please Enter ID of e-prescription: ")
-        msg = self.database.delete_prescription_by_id(e_id)
-        self.presentation.print_message(msg)
+        try:
+            ids = self.database.get_just_ids()
+            self.presentation.help_print(ids, "ids")
+            e_id = self.presentation.new_id_input("Please Enter ID of e-prescription: ")
+            msg = self.database.delete_prescription_by_id(e_id)
+            self.presentation.print_message(msg)
+        except KeyboardInterrupt:
+            self.presentation.print_message("Please enter valid input")

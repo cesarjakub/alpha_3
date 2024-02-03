@@ -10,6 +10,8 @@ from db_classes import Doctor
 from DAO import DAODoctor
 from db_classes import Manufacturer
 from DAO import DAOManufacturer
+from db_classes import Specialization
+from DAO import DAOSpecialization
 
 from database_conn import DBConnection
 
@@ -23,6 +25,7 @@ class Database:
         self.daomedicine = DAOMedicine(Medicine())
         self.daodoctor = DAODoctor(Doctor())
         self.daomanufacturer = DAOManufacturer(Manufacturer())
+        self.daospecialization = DAOSpecialization(Specialization())
 
     # first option
     def get_prescription_by_id(self, e_id):
@@ -70,6 +73,12 @@ class Database:
     def create_doctor(self, spec_name, first_name, last_name, title, date_of_birth, tel):
         msg = self.daodoctor.create_doctor(spec_name, first_name, last_name, title, date_of_birth, tel)
         return msg
+
+    def get_specialization(self):
+        specialization_list = list()
+        manufacturer = self.daospecialization.get_specialization()
+        specialization_list = manufacturer
+        return specialization_list
 
     # eighth option
     def import_json_data(self, which_data: str):
