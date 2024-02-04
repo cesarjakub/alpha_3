@@ -210,3 +210,4 @@ SELECT * FROM medicine;
 SELECT * FROM specialization;
 SELECT * FROM doctor;
 SELECT * FROM eprescription;
+SELECT specialization.Name FROM specialization;
