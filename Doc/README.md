@@ -12,7 +12,7 @@
 ## Popis používání
 - Po [instalaci a puštění programu](#instalace-a-spuštění-aplikace).
 - Si stáhneme ve složce `Data/Databse/Export_database` soubor `schema_data_export.sql`
-a nahrajeme ho do **SQL server Management Studio** a spustíme script a vytvoříme uživatele následně přepíšeme [configurační soubor](#nastavení-config-souboru) aby vše odpovídalo.
+a nahrajeme ho do **SQL server Management Studio** a spustíme script (script obsahuje již demo data) a vytvoříme uživatele následně přepíšeme [configurační soubor](#nastavení-config-souboru) aby vše odpovídalo.
 - Pokud je vše správně nastavené tak po spuštění se na obrazovce objeví hlavní menu aplikace.
   - menu vypadá takto
   ```cmd
@@ -110,3 +110,7 @@ a nahrajeme ho do **SQL server Management Studio** a spustíme script a vytvoř�
     - **os** knihovna
 
 ## Závěr
+- Projekt využívá knihovny třetích stran, jako jsou *pyodbc* pro připojení k databázi a standardní knihovny jako *json*, *sys*, *uuid*, *datetime*, a *os*, což přispívá k efektivnímu vývoji a spolehlivosti aplikace.
+- Tento databázový systém je otevřený dalšímu rozšíření pro danou problematiku e-receptů
+- Tento projekt, poskytuje aplikaci pro správu e-receptů, pacientů a lékařů.
+- Závěrem lze říci, že tento databázový systém je snaha o modernizaci zdravotního systému
