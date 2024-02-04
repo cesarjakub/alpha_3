@@ -36,6 +36,7 @@
 - Logické schéma databáze
 <br>
 ![](../Data/Database/Logical.png)
+<br>
 - Relační schéma databáze
 <br>
 ![](../Data/Database/Relational_1.png)
@@ -105,4 +106,4 @@
     - **datetime** knivovna
     - **os** knihovna
 
-## Závěr 
+## Závěr
