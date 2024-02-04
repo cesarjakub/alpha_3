@@ -10,7 +10,10 @@
 - **Projekt**: Jedná se o školní projekt
 
 ## Popis používání
-- Po [instalaci a puštění programu](#instalace-a-spuštění-aplikace) a pokud je správně nastavený [configurační soubor](#nastavení-config-souboru) tak se na obrazovce objeví hlavní menu aplikace.
+- Po [instalaci a puštění programu](#instalace-a-spuštění-aplikace).
+- Si stáhneme ve složce `Data/Databse/Export_database` soubor `schema_data_export.sql`
+a nahrajeme ho do **SQL server Management Studio** a spustíme script a vytvoříme uživatele následně přepíšeme [configurační soubor](#nastavení-config-souboru) aby vše odpovídalo.
+- Pokud je vše správně nastavené tak po spuštění se na obrazovce objeví hlavní menu aplikace.
   - menu vypadá takto
   ```cmd
   +----------------------------------+
@@ -64,8 +67,8 @@
 - První část obsahuje configuraci databáze tedy než pustíme aplikaci musíme nakonfigurovat databázi
     - **server**: název serveru zde je lokální je **třeba přepsat na svůj server** 
     - **DATABASE**: název databáze můžeme nechat 
-    - **UID**: název uživatele (vytvoříme v databázi)
-    - **PWD**: heslo pro uživatele (vytovoříme v databázi)
+    - **UID**: název uživatele (vytvoříme v databázi poté přepíšeme jméno zde)
+    - **PWD**: heslo pro uživatele (vytovoříme v databázi poté přepíšeme heslo zde)
 
 - Druhá část obsahuje cestu k souboru, který obsahuje importy do datbáze ve formátu json
     - **path_json**: přepíšeme pokud chceme importovat jiný **json** soubor **musí mít      správnou strukturu**
