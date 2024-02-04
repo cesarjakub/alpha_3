@@ -290,6 +290,6 @@ class Database:
         try:
             export_data = ExportData()
             export_data.export_into_file(data)
-            return "Report is created please check \"Data/Export/export.txt\" file"
+            return "Report is created please check \"Data/Report/\" file"
         except:
             return "Something went wrong"
