@@ -64,7 +64,7 @@ class Presentation:
                    ("4. create e-prescription", self.application.create_prescription),
                    ("5. create medicine", self.application.create_medicine),
                    ("6. create patient", self.application.create_patient),
-                   ("7. create doctor", self.application.create_doctor),# dodělat ješte názvy specializací
+                   ("7. create doctor", self.application.create_doctor),
                    ("8. import json", self.application.import_json_data),
                    ("9. generate report", self.application.create_report),
                    ("10. exit", self.application.exit)]
