@@ -4,6 +4,14 @@ from three_tier import Database
 
 
 def main():
+    """
+    The main function to initialize and run the three-tier application.
+
+    It creates instances of Application, Presentation, and Database classes, establishes connections between them,
+    and starts the main loop of the application.
+
+    :return: None
+    """
     app = Application()
 
     presentation = Presentation()
