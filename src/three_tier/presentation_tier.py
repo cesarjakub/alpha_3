@@ -284,7 +284,7 @@ class Presentation:
         """
         report = ""
         if num_of_rows == 0:
-            self.print_message("There are no records")
+            raise Exception("There are no records")
         for prescription in prescriptions:
             patient_info = f"Patient: {prescription[1]} {prescription[2]} {prescription[3]}\t  HIN: {prescription[4]}"
             issued_validity = f"Issued: {prescription[5]} \tValidity: {prescription[6]}"
