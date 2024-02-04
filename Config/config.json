@@ -9,6 +9,6 @@
     "path_json": "../Data/Import/patient.json"
   },
   "export_path": {
-    "path": "../Data/Export/export"
+    "path": "../Data/Report/report"
   }
 }
