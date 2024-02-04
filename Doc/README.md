@@ -38,11 +38,11 @@ a nahrajeme ho do **SQL server Management Studio** a spustíme script (script ob
 ## E-R diagram
 - Logické schéma databáze
 
-![](../Data/Database/Logical.png)
+![](Logical.png)
 
 - Relační schéma databáze
 
-![](../Data/Database/Relational_1.png)
+![](Relational_1.png)
 
 
 ## Nastavení config souboru
