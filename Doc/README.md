@@ -9,19 +9,37 @@
 - **Škola**: Střední průmyslová škola elektrotechnická, Praha 2, Ječná 30 
 - **Projekt**: Jedná se o školní projekt
 
-<hr>
-nadpis 2 - 4
-<hr>
+## Popis používání
+- Po [instalaci a puštění programu](#instalace-a-spuštění-aplikace) a pokud je správně nastavený [configurační soubor](#nastavení-config-souboru) tak se na obrazovce objeví hlavní menu aplikace.
+  - menu vypadá takto
+  ```cmd
+  +----------------------------------+
+  1. display e-prescription by ID
+  2. delete e-prescription by ID
+  3. modify e-prescription
+  4. create e-prescription
+  5. create medicine
+  6. create patient
+  7. create doctor
+  8. import json
+  9. generate report
+  10. exit
+  +----------------------------------+
+  ```
+  - vybíráme si vždy od 1 do 10 tedy napíšeme číslo 1 až 10.
+  - u možností je napsáno co dělají 
+  - po napsání čísla je uživatel vyzván k inputu
+    - pokud je input nepřijatelný program to zachytí a vyhodí chybovou hlášku
+  - aplikace se ukoknčí stisknutím 10 tedy vypne se
 
 ## E-R diagram
 - Logické schéma databáze
+<br>
 ![](../Data/Database/Logical.png)
 - Relační schéma databáze
+<br>
 ![](../Data/Database/Relational_1.png)
 
-<hr>
-nadpis6
-<hr>
 
 ## Nastavení config souboru
 - Po [instalaci](#instalace-a-spuštění-aplikace) si otevřeme složku `Config/`
