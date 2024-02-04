@@ -87,7 +87,7 @@ class Database:
             connection = DBConnection.connect()
             cursor = connection.cursor()
             if which_data.lower() == "medicine":
-                for medicine in import_data.import_into_medicine()["medicine"]:
+                for medicine in import_data.import_into()["medicine"]:
                     query = """INSERT INTO medicine (manufacturer_ID, Name, Amount, Dosage, Payment) 
                                VALUES (?, ?, ?, ?, ?)"""
                     values = (medicine["manufacturer_ID"], medicine["Name"], medicine["Amount"], medicine["Dosage"], medicine["Payment"])
@@ -95,7 +95,7 @@ class Database:
                 cursor.commit()
                 return "Data was successfully added"
             elif which_data.lower() == "patient":
-                for medicine in import_data.import_into_medicine()["patient"]:
+                for medicine in import_data.import_into()["patient"]:
                     query = """INSERT INTO patient (First_name, Last_name, Date_of_birth, Address, Health_insurance_number) 
                                VALUES (?, ?, ?, ?, ?)"""
                     values = (medicine["First_name"], medicine["Last_name"], medicine["Date_of_birth"], medicine["Address"], medicine["health_insurance_number"])
