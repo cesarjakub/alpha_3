@@ -35,6 +35,21 @@ a nahrajeme ho do **SQL server Management Studio** a spustíme script (script ob
     - pokud je input nepřijatelný program to zachytí a vyhodí chybovou hlášku
   - aplikace se ukoknčí stisknutím 10 tedy vypne se
 
+## Specifikace požadavků
+- Vložení, smazání a úpravu nějaké informace, záznamu, který se ukládá do více než jedné tabulky. Například vložení objednávky, která má položky apod.
+- Provést transakci nad více než jednou tabulkou. Například převod kreditních bodů mezi dvěma účty apod.
+- Vygenerovat souhrný report, který bude obsahovat smysluplná agregovaná data z alespoň tří tabulek Vaší databáze, např. počet součty nákupů podle měst apod. Report musí mít hlavičku a patičku.
+- Import dat do min. dvou tabulek z formátu CSV, XML nebo JSON.
+- Nastavit celý program v konfiguračním souboru.
+
+## Popis architektury
+- Three tier architektura
+  - Popis: Tento vzor rozděluje aplikaci na tři základní části - Database tier (logika a data), Presentation tier (uživatelské rozhraní) a Application tier (řídící logika).
+  - Využití: MVC by mohl být použit pro oddělení logiky databáze a uživatelského rozhraní. 
+- Data Access Object (DAO):
+  - Popis: Poskytuje abstrakci nad datovým uložištěm a umožňuje přístup k datům bez znalosti jejich podrobností.
+  - Využití: DAO můžeš použít pro oddělení logiky přístupu k databázi od zbytku aplikace.
+
 ## E-R diagram
 - Logické schéma databáze
 
